@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.14)
 project(InfSec_PasswordClient)
 
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED YES)
+
 include(FetchContent)
 
 FetchContent_Declare(json
@@ -8,5 +11,5 @@ FetchContent_Declare(json
     GIT_TAG v3.11.3)
 FetchContent_MakeAvailable(json)
 
-add_executable(client main.cpp)
-target_link_libraries(client PRIVATE nlohmann_json::nlohmann_json)
+add_executable(app src/main.cpp)
+target_link_libraries(app PRIVATE nlohmann_json::nlohmann_json)
