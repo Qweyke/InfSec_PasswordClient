@@ -11,5 +11,10 @@ FetchContent_Declare(json
     GIT_TAG v3.11.3)
 FetchContent_MakeAvailable(json)
 
-add_executable(app src/main.cpp)
+include_directories(${CMAKE_SOURCE_DIR}/include)
+
+file(GLOB SOURCES "src/*.cpp" "src/*.h")
+
+add_executable(app ${SOURCES})
+
 target_link_libraries(app PRIVATE nlohmann_json::nlohmann_json)
